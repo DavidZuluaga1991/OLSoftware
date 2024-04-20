@@ -1,27 +1,59 @@
 # OLSoftware
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+The application works as a tracking system for repositories, it will allow users to have clarity in the information stored in the various repositories that the company has, as well as their configurations and other relevant elements for each repository, the system has a session system and two roles that must block certain screens or modules:
 
-## Development server
+* Login
+* Dashboard
+* Administration table for Projects
+* Administration table for Users
+* Administration table for Roles
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Deploy project
 
-## Code scaffolding
+to deploy the project it can be done in 2 ways
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* **Dockerfile:**
+```bash
+# Create docker image
+$ docker build -t olsoftware .
 
-## Build
+# execute docker image
+$ docker run -d -p 80:80 olsoftware
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* **Docker Compose**
+```bash
+# running docker compose in daemon mode to run in the background
+$ docker-compose up -d
+```
 
-## Running unit tests
+## Folder structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **/src**: Angular Application (Main Application).
+  - **/app**: Main application module.
+    - **/components**:Application-specific components.
+      - **/dashboard**: Components related to the dashboards.
+        - **/pages**: Components for the different pages of the application.
+          - **/home**: Components specific to the home page.
+        - **/services**: Application specific services.
+          - **/notifications**: Notifications service.
+        - **/shared**: Module for shared elements across the application.
+          - **/layout**: Module for overall layout of the application.
+            - **/footer**: Footer component.
+            - **/header**: Header component.
+              - **/const**: Application constants.
+              - **/models**: Application data models.
+      - **/login**: Login component.
+    - **/core**: Module for global components and services.
+      - **/guards**: Guards for the application.
+      - **/interceptors**: Interceptors of the application.
+        - **/loading**: Middleware de login.
+      - **/services**: Global application services.
+        - **/auth**: Authentication service.
+        - **/loading**: Loading service.
+    - **/shared**: Module for shared elements across the application.
+      - **/components**: Shared components.
+        - **/loading**: Loading component.
+        - **/not-found**: Component for the 404 error page (not found).
+    - **/store**: Module for managing application state.
+  - **/assets**: Static application resources (images, CSS, etc).
