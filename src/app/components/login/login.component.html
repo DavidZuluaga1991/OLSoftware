@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="login">
+    <img class="login__logo" src="https://olsoftware.com/wp-content/uploads/2021/04/cropped-Logo-Oficial-OL-Software-230x64.png" alt="logo">
+    <p class="login__title">Bienvenido al gestor de proyectos</p>
+    <p class="login__description">Necesitamos tu usuario y contraseña</p>
+    <form [formGroup]="loginForm" class="form" (submit)="login()">
+      <input type="text" class="form__input" placeholder="Nombre de usuario Ej. nomre.apellido" formControlName="user">
+      <input type="text" class="form__input" placeholder="Aquí va tu contraseña" formControlName="password">
+      <button class="form__action" type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+    </form>
+    <div class="operation">
+      <label for="stay_connected" class="stay_connected">
+        <input type="checkbox" name="stay_connected" id="stay_connected" class="stay_connected__checkout">
+        Permanecer conectado
+      </label>
+      <a href="" class="operation__recovery">Recuperar Contraseña</a>
+    </div>
+  </div>
+</div>
+

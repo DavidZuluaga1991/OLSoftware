@@ -1,0 +1,32 @@
+.container {
+  background-color: #15297c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #ffffff;
+  flex-direction: column;
+  gap: 35px;
+  .info {
+    display: flex;
+    gap: 30px;
+    &__number {
+      font-size: 100px;
+      line-height: 63px;
+    }
+    .text {
+      max-width: 200px;
+      .text__title {
+        font-weight: 500;
+        font-size: 20px;
+        margin: 0;
+      }
+    }
+  }
+  &__back {
+    text-decoration: none;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+  }
+}

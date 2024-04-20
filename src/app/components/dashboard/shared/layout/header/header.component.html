@@ -1,0 +1,31 @@
+
+<div class="content-header">
+  <header class="header">
+    <section class="section">
+      <img class="section__logo" src="https://olsoftware.com/wp-content/uploads/2021/04/cropped-Logo-Oficial-OL-Software-230x64.png" alt="logo">
+      <button mat-icon-button (click)="isViewPanelMenu = !isViewPanelMenu"><mat-icon>menu</mat-icon></button>
+    </section>
+    <section class="section">
+      <button mat-icon-button><mat-icon [matBadge]="notificationStore.notificationsCount()" matBadgeColor="warn" aria-hidden="false">notifications_none</mat-icon></button>
+      <mat-icon>account_circle</mat-icon>
+      <button mat-icon-button><mat-icon>more_horiz</mat-icon></button>
+    </section>
+  </header>
+  <div class="content">
+    <div class="main-menu" [ngClass]="{'main-menu--extend': isViewPanelMenu}">
+      <ul class="menu">
+        @for (item of menu; track $index) {
+          <li class="option" [routerLink]="[item.url]" routerLinkActive="option--active">
+            <mat-icon class="option__icon" aria-hidden="false">{{ item.icon }}</mat-icon>
+            @if (isViewPanelMenu) { {{item.title}} }
+          </li>
+        }
+      </ul>
+    </div>
+    <div class="container">
+      <ng-content />
+      {{ notificationStore.notifications() | json }}
+    </div>
+  </div>
+</div>
+
