@@ -1,0 +1,13 @@
+<div class="climate">
+  <img class="climate__img" src="https://as1.ftcdn.net/v2/jpg/05/36/79/74/1000_F_536797466_DLXC2r0d4pechXWI7Q7YA0gTVXrF8Xwr.jpg" alt="">
+  <div class="degrees">
+    <mat-icon>brightness_7</mat-icon>
+    @if ((climate()?.list?.length ?? 0) > 0) {
+      @for (item of climate()?.list; track $index) {
+        <p class="degrees__number">{{ item.main.temp - 273.15 }} </p>
+        <p class="degrees__type">c</p>
+        <p class="degrees__city">{{ item.name }}</p>
+      }
+    }
+  </div>
+</div>

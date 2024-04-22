@@ -1,0 +1,22 @@
+<div class="cards">
+  <div class="card card--projects">
+    <p class="card__title">Proyectos Registrados</p>
+    <p class="card__count"> {{ cards()?.projects }}</p>
+    <p class="card__description">Ultimo proyecto Registrado hace 15 dias</p>
+  </div>
+  <div class="card card--developers">
+    <p class="card__title">Proyectos en Desarrollo</p>
+    <p class="card__count"> {{ cards()?.projects_dev }}</p>
+    <p class="card__description">Total de avance 22.00%</p>
+  </div>
+  <div class="card card--register">
+    <p class="card__title">Proyectos Registrados</p>
+    <p class="card__count"> {{ cards()?.projects }}</p>
+    <p class="card__description">Ultimo proyecto Registrado hace 15 dias</p>
+  </div>
+  <div class="card card--errors">
+    <p class="card__title">Cantidad de errores</p>
+    <p class="card__count"> {{ cards()?.errors_deploy }}</p>
+    <p class="card__description">Ultimo error hace 2 horas</p>
+  </div>
+</div>
